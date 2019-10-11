@@ -1,0 +1,55 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+
+###Client###
+node_modules
+
+###Client###
+node_modules/
+.nb-gradle/
+
+*.db
+
+// songkick
+const songKickKey = "YlX4r2ab8xzzlYDB"
+// ticketmaster
+const ticketMasterKey = "Nejq6QyKwG291bUIKYqbZbcY0oyRdeLP"
+// spotify
+const spotifyKey = "4d3d0be0258c4de89c2b67214a1facf2"
+
+module.exports {
+  songKickKey,
+  ticketMasterKey,
+  spotifyKey
+}
+
+main.trace.db
+###Client###
+node_modules
+
+
+
+### API Tokens ###
+secrets.js

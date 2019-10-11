@@ -1,0 +1,19 @@
+{
+  "people": [
+    {
+      "age": 30,
+      "isAlive": true,
+      "name": "Alice Smith"
+    },
+    {
+      "age": 30,
+      "isAlive": true,
+      "name": "Bob Jones"
+    },
+    {
+      "age": 30,
+      "isAlive": true,
+      "name": "Charlie Brown"
+    }
+  ]
+}

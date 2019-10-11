@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hurricanes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+{{^name}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Name" name="loginName"/>
+    <input type="password" placeholder="Password" name="password"/>
+    <button type="submit">Login</button>
+</form>
+{{/name}}
+
+{{#name}}
+Hello, {{name}}!
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<form action="/hurricane" method="post">
+    <input type="text" placeholder="Hurricane Name" name="hname"/>
+    <input type="text" placeholder="Hurricane Location" name="hlocation"/>
+    <select name="hcategory">
+        <option selected disabled>Category</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <input type="text" placeholder="Image URL" name="himage" width="200"/>
+    <button type="submit">Submit Hurricane</button>
+</form>
+{{/name}}
+
+<div class="table-stuff">
+
+
+    <table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Submitter</th>
+        <th>Image</th>
+    </tr>
+    {{#hurricanes}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{location}}</td>
+        <td>{{category}}</td>
+        <td>{{author}}</td>
+        <td><img src="{{image}}" width="100" height="100"/></td>
+    </tr>
+    {{/hurricanes}}
+    </table>
+
+</div>
+</body>
+</html>
