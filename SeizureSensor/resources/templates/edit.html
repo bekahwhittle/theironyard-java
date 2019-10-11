@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Seizure</title>
+</head>
+<body>
+{{#seizures}}
+<form action="/submit-seizure" method="post">
+    <input type="text" placeholder="type" name="type"/>
+    <input type="text" placeholder="trigger" name="trigger"/>
+    <input type="text" placeholder="tOfDay" name="tOfDay"/>
+    <input type="int" placeholder="times" name="times"/>
+    <input type="text" placeholder="length" name="length"/>
+    <input type="text" placeholder="where" name="where"/>
+    <br>
+    <button type="submit">Submit Seizure</button>
+</form>
+{{/seizures}}
+</body>
+</html>

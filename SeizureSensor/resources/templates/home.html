@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{#username}}
+Welcome Back, {{username}}!
+<br>
+<form action="/logout" method="post">
+    <button type="submit">LOGOUT</button>
+</form>
+<br>
+<form action="/submit-seizure" method="post">
+    <input type="text" placeholder="type" name="type"/>
+    <input type="text" placeholder="trigger" name="trigger"/>
+    <input type="text" placeholder="tOfDay" name="tOfDay"/>
+    <input type="int" placeholder="times" name="times"/>
+    <input type="text" placeholder="length" name="length"/>
+    <input type="text" placeholder="where" name="where"/>
+   <br>
+    <button type="submit">Submit Seizure</button>
+</form>
+{{/username}}
+
+
+<table>
+
+    {{#seizures}}
+    <head>
+        <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 5px solid #004d3d;
+    text-align: center;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #00e6b8;
+}
+
+</style>
+    </head>
+
+    <table>
+        <tr>
+            <td>{{type}}</td>
+            <td>{{trigger}}</td>
+            <td>{{tOfDay}}</td>
+            <td>{{times}}</td>
+            <td>{{length}}</td>
+            <td>{{where}}</td>
+            <th></th>
+        </tr>
+        {{/seizures}}
+    </table>
+
+</table>
+
+
+<ol>
+    {{#seizures}}
+    <li style="inline-block;"><b>{{type}}</b> - {{trigger}} - {{tOfDay}} - {{comment}}
+        <form action="/edit-seizure" method="get"/>
+            <input type="hidden" name="id" value="{{id}}"/>
+            <a href="/edit-seizure?id={{id}}">Edit Seizure</a>
+        </form>
+        <form action="/delete-seizure" method="post">
+            <input type="hidden" name="id" value="{{id}}"/>
+            <button type="submit">Delete Seizure</button>
+        </form>
+    </li>
+    {{/seizures}}
+</ol>
+
+
+</body>
+</html>

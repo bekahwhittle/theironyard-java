@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>DrunkDiaries</title>
+        <!--<link rel="stylesheet" href="style.css" type="text/css">-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    </head>
+
+    <body>
+    {{#username}}
+    <!--<div class="navBar">-->
+        <!--<div class="logoNav" float="right">-->
+            <!--<img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/6316/small/1436444409/iron-pints.png" alt="IronPints" width="120" />-->
+        <!--</div>-->
+       <!---->
+        <!--</div>-->
+        <!--<div class="userNav">-->
+            <!--<span>&hellip;</span>-->
+            <!--<img src="http://assets.nydailynews.com/polopoly_fs/1.1229854!/img/httpImage/image.jpg_gen/derivatives/landscape_635/donald-trump.jpg" alt="RottingPumpkin" width="120" />-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="searchNav">
+        <form action="/" method="get">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit" name="button">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        </form>
+        <br>
+        <form action="/logout" method="post">
+            <button type="submit">LOGOUT</button>
+        </form>
+        <br>
+        {{^edit}}
+        <div class ="app container">
+            <form action="/add-message" method="post">
+                <input type="text" placeholder="Text Message" name="mtext"/>
+                <input type="text" placeholder="Sent By" name="mauth"/>
+                <input type="text" placeholder="How Drunk" name ="drunk">
+                <input type="text" placeholder="Image Link" name="mimage"/>
+                <button type="submit">Submit Message</button>
+                <br>
+            </form>
+        {{/edit}}
+        {{#edit}}
+            <form action="/edit-message" method="post">
+                <input type="text" placeholder="Text Message" name="mtext" value="{{text}}"/>
+                <input type="text" placeholder="Sent By" name="mauth" value="{{author}}"/>
+                <input type="text" placeholder="How Drunk" name ="drunk" value="{{drunk}}">
+                <input type="text" placeholder="Image Link" name="mimage" value="{{image}}"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <button type="submit">Update Message</button>
+            </form>
+        {{/edit}}
+        </div>
+        <table>
+
+            <tr>
+                <th>Text</th>
+                <th>Sent To:</th>
+                <th>How Drunk</th>
+                <th>Image</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+            {{#messages}}
+            <tr>
+                <td>{{text}}</td>
+                <td>{{author}}</td>
+                <td>{{drunk}}</td>
+                <td>
+                    <img src="{{image}}"/>
+                </td>
+                <td>
+                    <form action="/delete-message" method="post" style="display: inline-block;">
+                        <input type="hidden" name="id" value="{{id}}"/>
+                        <button type="submit">DELETE</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/" method="get" style="display: inline-block;">
+                        <input type="hidden" name="id" value="{{id}}"/>
+                        <button type="submit">EDIT</button>
+                    </form>
+                </td>
+            </tr>
+
+            {{/messages}}
+        </table>
+    </div>
+    {{/username}}
+    </body>
+</html>

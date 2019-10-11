@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    </head>
+
+    <body>
+    {{^username}}
+        <form action="/login" method="post">
+            <form action="action_page.php">
+                <!--<div class="imgcontainer">-->
+                    <!--<img src="https://media.giphy.com/media/3o85xjSETVG3OpPyx2/giphy.gif" alt="Avatar" class="circle">-->
+                <!--</div>-->
+                <div class="container">
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <button type="submit">Login</button>
+                </div>
+                <div class="container" style="background-color:#f1f1f1">
+                    <div style="text-align:center;">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </form>
+    {{/username}}
+    </body>
+</html>

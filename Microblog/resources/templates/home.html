@@ -1,0 +1,44 @@
+<html>
+<body>
+{{#name}}
+Hello, {{name}}!
+<form action="/create-message" method="post">
+    <input type = "text" placeholder="Write message:" name="message"/>
+    <button type="submit">
+        GO
+    </button>
+    <br><br>
+    Messages by {{name}}: <br>
+    <ul>
+        {{#messages}}
+    <li>
+        {{text}}
+    </li>
+        {{/messages}}
+    </ul>
+
+</form>
+
+<form action="/delete-message" method="post">
+    <input type="text" placeholder="Message #" name="message"/>
+    <button type="submit">
+        DELETE
+    </button>
+</form>
+
+<form action="/logout" method="post">
+    <button type="submit">
+    Logout
+    </button>
+</form>
+
+{{/name}}
+
+{{^name}}
+<a href="/login">Login</a>
+{{/name}}
+
+<br>
+
+</body>
+</html>
